@@ -5,6 +5,7 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 public class PublisherApplication {
@@ -18,5 +19,12 @@ public class PublisherApplication {
     public MessageConverter messageConverter(){
         return new Jackson2JsonMessageConverter();
     }
+
+    // RestTemplate będzie naszym clientem http
+    @Bean
+    public RestTemplate restTemplate(){
+        return new RestTemplate();
+    }
+
 
 }
