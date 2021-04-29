@@ -1,5 +1,6 @@
 package com.kuba.publisher;
 
+import com.kuba.notification.Notification;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,13 +16,13 @@ public class PublisherController {
     }
 
 
-    @GetMapping("/message")
-    public String sendMessage(@RequestParam  String message){
-
-        // default exchange type  ->  routingKey = nazwa kolejki na którę będzie wrzucał nasz exchange
-        rabbitTemplate.convertAndSend("kurs", message);
-        return "Message was send to RabbitMq";
-    }
+//    @GetMapping("/message")
+//    public String sendMessage(@RequestParam  String message){
+//
+//        // default exchange type  ->  routingKey = nazwa kolejki na którę będzie wrzucał nasz exchange
+//        rabbitTemplate.convertAndSend("kurs", message);
+//        return "Message was send to RabbitMq";
+//    }
 
     @PostMapping("/notification")
     public String sendNotification(@RequestBody Notification notification){

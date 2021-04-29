@@ -1,4 +1,4 @@
-package com.kuba.publisher;
+package com.kuba.notification;
 
 import java.io.Serializable;
 
